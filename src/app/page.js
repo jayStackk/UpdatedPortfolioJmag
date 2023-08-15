@@ -8,9 +8,6 @@ import {
   Routes,
   Navigate
 } from "react-router-dom";
-
-
-
 import Techstack from "@/pages/Skillset";
 import PreLoader from "@/components/skillset/PreLoader";
 import Home from "@/pages/HomePage";
