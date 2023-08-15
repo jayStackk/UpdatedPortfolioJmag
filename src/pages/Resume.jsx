@@ -8,25 +8,25 @@ import ResumePic from '../assets/JohnMCSTACK.png';
 import Image from "next/image";
 
 const Resume = () => {
-  const imageRef = useRef(null);
+  // const imageRef = useRef(null);
 
-  // Function to handle image download
-  const handleImageDownload = () => {
-    const canvas = document.createElement("canvas");
-    // const image = imageRef.current;
+  // // Function to handle image download
+  // const handleImageDownload = () => {
+  //   const canvas = document.createElement("canvas");
+  //   // const image = imageRef.current;
 
-    // canvas.width = image.width;
-    // canvas.height = image.height;
+  //   // canvas.width = image.width;
+  //   // canvas.height = image.height;
 
-    // const context = canvas.getContext("2d");
-    // context.drawImage(image, 0, 0);
+  //   // const context = canvas.getContext("2d");
+  //   // context.drawImage(image, 0, 0);
 
-    const dataUrl = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = dataUrl;
-    link.download = "JohnMCSTACK.png"; // Set the desired download filename
-    link.click();
-  };
+  //   const dataUrl = canvas.toDataURL("image/png");
+  //   const link = document.createElement("a");
+  //   link.href = dataUrl;
+  //   link.download = "JohnMCSTACK.png"; // Set the desired download filename
+  //   link.click();
+  // };
 
   return (
 
