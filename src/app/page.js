@@ -1,95 +1,86 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client"
 
-export default function Home() {
+
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate
+} from "react-router-dom";
+
+
+
+import Techstack from "@/pages/Skillset";
+import PreLoader from "@/components/skillset/PreLoader";
+import Home from "@/pages/HomePage";
+import NavBar from "@/components/NavBar/NavBar";
+import ScrollToTop from "@/components/skillset/ScrollTop";
+import Footer from "@/components/Footer/Footer";
+import Stacknew from "@/pages/Skillset";
+import Skill from "@/pages/Skillset";
+import './style.css'
+import './App.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import Skillset from "@/pages/Skillset";
+import ProjectCard from "@/components/Projects/ProjectCard";
+import Projects from "@/pages/Projects";
+import Contact from "@/pages/Contacts";
+import Resume from "@/pages/Resume";
+
+
+// import Home from './pages/Home'
+// import Skill from './pages/Skillset'
+// import Project from './pages/Projects'
+// import Resume from './pages/Resume'
+// import Contact from './pages/Contact'
+
+// import Navbar from "./components/Navbar/Navbar";
+// import Footer from "./components/Footer/Footer";
+// import Preloader from "./components/PreLoader"
+// import ScrollToTop from "./components/ScrollToTop"
+
+// import "./App.css";
+// import "./style.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+
+function App() {
+  const [load, upadateLoad] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      upadateLoad(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <Router>
+      <PreLoader load={load}/>
+     
+      <div className="App" id={load ? "no-scroll" : "scroll"}>
+        <NavBar   />
+        <ScrollToTop />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/skill" element={<Skillset />} />
+          <Route path="/project" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
+          {/* <Route path="/contact" element={<Contact />} /> */}
+
+          {/* <Route path="/techy" element={<Stacknew />} /> */}
+          {/* <Route path="/skillset" element={<Skill />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Navigate to="/"/>} /> */}
+        </Routes>
+        <Footer />
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </Router>
+  );
 }
+
+export default App;

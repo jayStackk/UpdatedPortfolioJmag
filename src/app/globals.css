@@ -87,6 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-image: linear-gradient(to left, rgb(5, 8, 40), rgb(1, 4, 39));
   background: linear-gradient(
       to bottom,
       transparent,
