@@ -8,6 +8,7 @@ import ResumePic from '../assets/JohnMCSTACK.png';
 import Image from "next/image";
 
 
+
 const Resume = () => {
   const imageRef = useRef(null);
 
@@ -17,16 +18,16 @@ const Resume = () => {
   const handleImageDownload = () => {
 
     
-  if (typeof window !== "undefined") {
+  
     // your code with access to window or document object here 
-    const canvas = document.createElement("canvas");
+    const canvas = typeof document !== 'undefined' && document.createElement("canvas");
 
     const dataUrl = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = dataUrl;
     link.download = "JohnMCSTACK.png"; // Set the desired download filename
     link.click();
-    }
+    
   };
 
   return (
