@@ -22,7 +22,7 @@ const Resume = () => {
           <Button
             variant="primary"
             style={{ maxWidth: "250px" }}
-            onClick={handleImageDownload}
+           
           >
             <AiOutlineDownload />
             &nbsp;Download Image
